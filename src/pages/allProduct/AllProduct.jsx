@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import Layout from "../../components/Layout/Layout";
 import { useContext } from "react";
@@ -22,11 +23,9 @@ const AllProduct = () => {
 
   const handleAddToCart = (item) => {
     if (isItemInCart(item.id)) {
-      // If item is already in the cart, remove it
-      dispatch(removeFromCart(item.id)); // Import removeFromCart action
+      dispatch(removeFromCart(item.id));
       toast.success("Removed from cart");
     } else {
-      // If item is not in the cart, add it
       dispatch(addToCart(item));
       toast.success("Added to cart successfully!");
     }
@@ -38,23 +37,30 @@ const AllProduct = () => {
       dispatch(loadCart(JSON.parse(storedCart)));
     }
   }, [dispatch]);
+
+  // State to track the number of products to display
+  const [visibleProducts, setVisibleProducts] = useState(15);
+
+  // Load more products when the button is clicked
+  const handleLoadMore = () => {
+    setVisibleProducts((prevVisibleProducts) => prevVisibleProducts + 15);
+  };
+
   return (
     <Layout>
       <Category />
       <div className="py-6">
-        {/* Heading  */}
         <div className="">
-          <h1 className=" text-center mb-5 text-2xl font-semibold">
+          <h1 className="text-center mb-5 text-2xl font-semibold">
             All Products
           </h1>
         </div>
 
-        {/* main  */}
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-5 mx-auto">
             <div>{loading && <Loader />}</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {getAllProduct.map((item, index) => {
+              {getAllProduct.slice(0, visibleProducts).map((item, index) => {
                 const { id, title, price, productImageUrl } = item;
                 return (
                   <div
@@ -87,7 +93,7 @@ const AllProduct = () => {
                               onClick={() => handleAddToCart(item)}
                               className="text-white bg-red-500 hover:bg-red-600 px-3 py-2 rounded-md focus:outline-none"
                             >
-                              delete To Cart
+                              Delete To Cart
                             </button>
                           ) : (
                             <button
@@ -104,6 +110,18 @@ const AllProduct = () => {
                 );
               })}
             </div>
+
+            {/* Load More Button */}
+            {visibleProducts < getAllProduct.length && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={handleLoadMore}
+                  className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md focus:outline-none"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
           </div>
         </section>
       </div>

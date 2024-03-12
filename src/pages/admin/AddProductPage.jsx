@@ -7,13 +7,13 @@ import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
 const categoryList = [
   {
-    name: "fashion",
+    name: "Jewelery",
   },
   {
-    name: "shirt",
+    name: "MakeUp",
   },
   {
-    name: "jacket",
+    name: "Bags",
   },
   {
     name: "mobile",
@@ -26,10 +26,7 @@ const categoryList = [
   },
   {
     name: "home",
-  },
-  {
-    name: "books",
-  },
+  }
 ];
 const AddProductPage = () => {
   const context = useContext(myContext);

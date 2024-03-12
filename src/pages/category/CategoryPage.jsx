@@ -30,11 +30,9 @@ const CategoryPage = () => {
 
   const handleAddToCart = (item) => {
     if (isItemInCart(item.id)) {
-      // If item is already in the cart, remove it
-      dispatch(removeFromCart(item.id)); // Import removeFromCart action
+      dispatch(removeFromCart(item.id)); 
       toast.success("Removed from cart");
     } else {
-      // If item is not in the cart, add it
       dispatch(addToCart(item));
       toast.success("Added to cart successfully!");
     }
