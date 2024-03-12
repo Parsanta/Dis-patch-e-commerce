@@ -116,7 +116,7 @@ const AllProduct = () => {
               <div className="text-center mt-8">
                 <button
                   onClick={handleLoadMore}
-                  className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md focus:outline-none"
+                  className="hover:bg-blue-600 text-black  px-4 py-2 rounded-md border border-outline focus:outline-none"
                 >
                   Load More
                 </button>

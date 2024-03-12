@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 const category = [
     {
         image: 'https://icons.veryicon.com/png/o/miscellaneous/home-of-wisdom-shopping/jewelry-5.png',
-        name: 'jewelry'
+        name: 'Jewelry'
     },
     {
         image: 'https://uxwing.com/wp-content/themes/uxwing/download/beauty-fashion/makeup-icon.png',
-        name: 'makeup'
+        name: 'MakeUp'
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-smartphone-android-mobile-device-44503.png?f=webp&w=256',
@@ -15,7 +15,7 @@ const category = [
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-tote-bag-3695114-3076619.png?f=webp&w=256',
-        name: 'bags'
+        name: 'Bags'
     },
     {
         image: 'https://cdn.iconscout.com/icon/premium/png-512-thumb/laptop-2840239-2359373.png?f=webp&w=256',
@@ -31,11 +31,11 @@ const category = [
     },
     {
         image: 'https://icons.veryicon.com/png/o/miscellaneous/home-of-wisdom-shopping/jewelry-5.png',
-        name: 'jewelry'
+        name: 'Jewelry'
     },
     {
         image: 'https://uxwing.com/wp-content/themes/uxwing/download/beauty-fashion/makeup-icon.png',
-        name: 'makeup'
+        name: 'MakeUp'
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-smartphone-android-mobile-device-44503.png?f=webp&w=256',
@@ -43,7 +43,7 @@ const category = [
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-tote-bag-3695114-3076619.png?f=webp&w=256',
-        name: 'bags'
+        name: 'Bags'
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-book-2757242-2293194.png?f=webp&w=256',
@@ -51,7 +51,7 @@ const category = [
     },
     {
         image: 'https://uxwing.com/wp-content/themes/uxwing/download/beauty-fashion/makeup-icon.png',
-        name: 'makeup'
+        name: 'MakeUp'
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-smartphone-android-mobile-device-44503.png?f=webp&w=256',
@@ -59,7 +59,7 @@ const category = [
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-tote-bag-3695114-3076619.png?f=webp&w=256',
-        name: 'bags'
+        name: 'Bags'
     },
     {
         image: 'https://cdn.iconscout.com/icon/free/png-512/free-book-2757242-2293194.png?f=webp&w=256',
