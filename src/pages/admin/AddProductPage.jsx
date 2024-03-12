@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
 const categoryList = [
   {
-    name: "jewelery",
+    name: "jewelry",
   },
   {
     name: "makeup",
