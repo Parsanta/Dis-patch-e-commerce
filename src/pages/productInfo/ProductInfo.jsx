@@ -20,7 +20,6 @@ const ProductInfo = () => {
     setLoading(true)
     try {
         const productTemp = await getDoc(doc(db, "product", id))
-        // console.log({...productTemp.data(), id : productTemp.id})
         setProduct({...productTemp.data(), id : productTemp.id})
         setLoading(false)
     } catch (error) {

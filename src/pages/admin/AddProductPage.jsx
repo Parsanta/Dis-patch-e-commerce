@@ -7,13 +7,13 @@ import { useNavigate } from "react-router";
 import Loader from "../../components/loader/Loader";
 const categoryList = [
   {
-    name: "Jewelery",
+    name: "jewelery",
   },
   {
-    name: "MakeUp",
+    name: "makeup",
   },
   {
-    name: "Bags",
+    name: "bags",
   },
   {
     name: "mobile",

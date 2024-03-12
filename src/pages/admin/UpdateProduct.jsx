@@ -7,14 +7,14 @@ import toast from "react-hot-toast";
 import Loader from "../../components/loader/Loader";
 
 const categoryList = [
-    { name: 'fashion' },
-    { name: 'shirt' },
-    { name: 'jacket' },
+    { name: 'jewelry' },
+    { name: 'makeup' },
+    { name: 'bags' },
     { name: 'mobile' },
     { name: 'laptop' },
     { name: 'shoes' },
     { name: 'home' },
-    { name: 'books' }
+    { name: 'shoes' }
 ];
 
 const UpdateProductPage = () => {
