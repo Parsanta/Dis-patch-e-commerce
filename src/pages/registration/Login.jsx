@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { onSnapshot } from "firebase/firestore";
 import { collection, query, where } from "firebase/firestore";
 import { auth, db } from "../../firebase/FirebaseConfig";
-
+import {motion} from "framer-motion"
 const Login = () => {
   const context = useContext(myContext);
   const { loading, setLoading } = context;
@@ -73,67 +73,95 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen bg-gradient-to-br from-indigo-800 to-indigo-700">
       {loading && <Loader />}
       {/* Login Form  */}
-      <div className="login_Form bg-white mx-4 md:mx-auto mt-16 p-8 border border-gray-200 shadow-md rounded-md w-full max-w-md transform -translate-y-20 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-        {/* Top Heading  */}
-        <div className="mb-8 text-center animate-fadeIn">
-          <h2 className="text-2xl md:text-4xl font-bold text-indigo-600">
-            Welcome Back!
-          </h2>
-          <p className="text-gray-600">Login to your account</p>
-        </div>
+      <motion.div initial={{ scale: 0.1 }} animate={{ scale: 1 }}>
+        <div className="login_Form bg-white md:mx-auto mt-16 p-8 border border-gray-200 shadow-md rounded-md w-full max-w-md transform -translate-y-20 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+          {/* Top Heading  */}
+          <div className="mb-8 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-2xl md:text-4xl font-bold text-indigo-600"
+            >
+              Welcome Back!
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-gray-600"
+            >
+              Login to your account
+            </motion.p>
+          </div>
 
-        {/* Input Two  */}
-        <div className="mb-6 animate-slideInUp">
-          <input
-            type="email"
-            value={userLogin.email}
-            onChange={(e) => {
-              setUserLogin({
-                ...userLogin,
-                email: e.target.value,
-              });
-            }}
-            placeholder="Email Address"
-            className="input-field focus:outline-none focus:border-none"
-          />
-        </div>
+          {/* Input Two  */}
+          <div className="mb-6 ">
+            <motion.input
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              type="email"
+              value={userLogin.email}
+              onChange={(e) => {
+                setUserLogin({
+                  ...userLogin,
+                  email: e.target.value,
+                });
+              }}
+              placeholder="Email Address"
+              className="input-field focus:outline-none focus:border-none"
+            />
+          </div>
 
-        {/* Input Three  */}
-        <div className="mb-6 animate-slideInUp">
-          <input
-            type="password"
-            value={userLogin.password}
-            onChange={(e) => {
-              setUserLogin({
-                ...userLogin,
-                password: e.target.value,
-              });
-            }}
-            placeholder="Password"
-            className="input-field focus:outline-none focus:border-none"
-          />
-        </div>
+          {/* Input Three  */}
+          <div className="mb-6 ">
+            <motion.input
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              type="password"
+              value={userLogin.password}
+              onChange={(e) => {
+                setUserLogin({
+                  ...userLogin,
+                  password: e.target.value,
+                });
+              }}
+              placeholder="Password"
+              className="input-field focus:outline-none focus:border-none"
+            />
+          </div>
 
-        {/* Signup Button  */}
-        <div className="mb-8 animate-fadeIn">
-          <button
-            onClick={userLoginFunction}
-            type="button"
-            className="btn-primary w-full h-12 transition-all duration-300 hover:bg-indigo-800 hover:text-white"
-          >
-            Login
-          </button>
-        </div>
+          {/* Signup Button  */}
+          <div className="mb-8 animate-fadeIn">
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              onClick={userLoginFunction}
+              type="button"
+              className="btn-primary w-full h-12 transition-all duration-300 hover:bg-indigo-800 hover:text-white"
+            >
+              Login
+            </motion.button>
+          </div>
 
-        <div className="text-center animate-fadeIn">
-          <p className="text-gray-700">
-            Don't have an account?{" "}
-            <Link className="text-indigo-600 font-bold" to="/signup">
-              Signup
-            </Link>
-          </p>
+          <div className="text-center animate-fadeIn">
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+              className="text-gray-700"
+            >
+              Don't have an account?{" "}
+              <Link className="text-indigo-600 font-bold" to="/signup">
+                Signup
+              </Link>
+            </motion.p>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
