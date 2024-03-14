@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react"; // Removed unnecessary import
+import { useContext } from "react"; 
 import myContext from "../../context/MyContext";
 import Loader from "../loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,16 +69,16 @@ const HomePageProductCard = () => {
                       Brand Name
                     </h2>
                     <h1 className="text-md font-semibold text-gray-900 mb-3">
-                      {title}
+                      {title.slice(0,30)}...
                     </h1>
                     <p className="text-gray-700 mb-3">
                       {/* Additional product details here */}
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap items-center justify-between">
                       <p className="text-md font-medium text-gray-900">
                         Rs.{price}
                       </p>
-                      <div className="flex">
+                      <div className="flex flex-wrap">
                         {isItemInCart(item.id) ? (
                           <button
                             onClick={() => handleAddToCart(item)}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect,useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const category = [
     {
@@ -70,17 +70,21 @@ const category = [
 const Category = () => {
     const containerRef = useRef(null);
     const navigate = useNavigate();
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
 
     useEffect(() => {
         const container = containerRef.current;
         let scrollAmount = 1;
 
         const scroll = () => {
-            container.scrollLeft += scrollAmount;
-            if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
-                scrollAmount = -1; // Change direction when reaching the end
-            } else if (container.scrollLeft <= 0) {
-                scrollAmount = 1; // Change direction when reaching the beginning
+            if (!isDragging) {
+                container.scrollLeft += scrollAmount;
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                    scrollAmount = -1; // Change direction when reaching the end
+                } else if (container.scrollLeft <= 0) {
+                    scrollAmount = 1; // Change direction when reaching the beginning
+                }
             }
         };
 
@@ -89,12 +93,35 @@ const Category = () => {
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [isDragging]);
+
+    const handleMouseDown = (e) => {
+        setIsDragging(true);
+        setStartX(e.pageX - containerRef.current.offsetLeft);
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - containerRef.current.offsetLeft;
+        const walk = (x - startX) *5; // Adjust the sensitivity here
+        containerRef.current.scrollLeft -= walk;
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
 
     return (
         <div className="px-5">
             <div className="flex flex-col mt-5">
-                <div className="flex overflow-hidden hide-scroll-bar" ref={containerRef}>
+                <div
+                    className="flex overflow-x-scroll hide-scroll-bar"
+                    ref={containerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}>
                     {category.map((item, index) => (
                         <div key={index} className="px-3 lg:px-4">
                             <div
@@ -111,10 +138,6 @@ const Category = () => {
             </div>
             <style dangerouslySetInnerHTML={{
                 __html: `
-                    .hide-scroll-bar {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
                     .hide-scroll-bar::-webkit-scrollbar {
                         display: none;
                     }
@@ -124,4 +147,4 @@ const Category = () => {
     );
 };
 
-export default Category
+export default Category;

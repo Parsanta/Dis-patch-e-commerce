@@ -74,7 +74,7 @@ const Login = () => {
       {loading && <Loader />}
       {/* Login Form  */}
       <motion.div initial={{ scale: 0.1 }} animate={{ scale: 1 }}>
-        <div className="login_Form bg-white md:mx-auto mt-16 p-8 border border-gray-200 shadow-md rounded-md w-full max-w-md transform -translate-y-20 transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+        <div className="login_Form bg-white mx-4 md:mx-auto mt-16 p-8 border border-gray-200 shadow-md rounded-md w-full max-w-md transform -translate-y-20 transition-all duration-300 hover:scale-105 hover:shadow-lg">
           {/* Top Heading  */}
           <div className="mb-8 text-center">
             <motion.h2
